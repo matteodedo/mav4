@@ -6,19 +6,76 @@
     <meta name="description" content="&lt;model-viewer&gt; template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link type="text/css" href="./styles.css" rel="stylesheet"/>
+      <script src="script.js"></script>
   </head>
   <body>
-    <!-- <model-viewer> HTML element -->
-    <model-viewer src="mav.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="poster.webp" shadow-intensity="1" environment-image="montorfano_1k.hdr" skybox-image="montorfano_1k.hdr" exposure="1.09" camera-orbit="11.05deg 82.56deg 281.9m" field-of-view="30deg">
-      <button class="Hotspot" slot="hotspot-1" data-position="-10.447233061149092m 1.0627952465560497m 43.37338878824312m" data-normal="-0.00907710306756374m 0.9994894367260762m 0.030634491555952065m" data-visibility-attribute="visible">
+         <script src="script.js"></script>
+         <div   style="position: absolute; padding: 20%; width:100%" class="galleria">
+         <div style="position:relative; ">
+         <img id="gal_piazza" src="piazza.jpg" width=50% style="z-index:500; margin:0 auto; position:absolute; visibility:hidden;" onclick="nascondi()" >
+         <img id="gal_cima" src="cimaloreto.jpg" width=50% style="z-index:500; margin:0 auto; position:absolute; visibility:hidden;" onclick="nascondi()" >
+         <img id="gal_yale" src="yale.jpg" width=50% style="z-index:500; margin:0 auto; position:absolute; visibility:hidden;" onclick="nascondi()" >
+         <img id="gal_campon" src="campon.jpg" width=50% style="z-index:500; margin:0 auto; position:absolute; visibility:hidden;" onclick="nascondi()" >
+     </div> 
+    </div>
+      
+      
+      
+      
+      
+      
+      <!-- <model-viewer> HTML element -->
+    <model-viewer style="display: block; position: absolute; z-index:2" src="mav.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls poster="poster.webp" shadow-intensity="1" environment-image="montorfano_1k.hdr" skybox-image="montorfano_1k.hdr" exposure="1.09" camera-orbit="11.05deg 82.56deg 281.9m" field-of-view="30deg">
+ <!---------------------- vecchio html   
+        <button  data-visibility-attribute="visible">
           <div class="HotspotAnnotation">piazza</div>
-      </button><button class="Hotspot" slot="hotspot-3" data-position="-46.64516004231656m 23.617126184213888m -12.46694783302678m" data-normal="0.11769807399556478m 0.9918878291783813m 0.04801768117613446m" data-visibility-attribute="visible">
+      </button>
+        <button class="Hotspot" slot="hotspot-3"  data-visibility-attribute="visible">
           <div class="HotspotAnnotation">cima loreto</div>
-      </button><button class="Hotspot" slot="hotspot-4" data-position="-6.672287488709216m 32.58268981582546m -27.760745398659225m" data-normal="0.1647917827890575m 0m 0.9863283775321504m" data-visibility-attribute="visible">
+      </button>
+        <button class="Hotspot" slot="hotspot-4"  data-visibility-attribute="visible">
           <div class="HotspotAnnotation">yale</div>
-      </button><button class="Hotspot" slot="hotspot-5" data-position="54.77020532388835m 47.116102422937416m -41.234837329432565m" data-normal="-0.021809616209644722m 0.9994606373601796m -0.024551476704502417m" data-visibility-attribute="visible">
+      </button>
+        <button class="Hotspot" slot="hotspot-5"  data-visibility-attribute="visible">
           <div class="HotspotAnnotation">campon</div>
       </button>
+--------------------------------------------------->        
+        
+<!-- --------------------piazza------------------------------- -->        
+        <button class="Hotspot" slot="hotspot-1" data-position="-10.447233061149092m 1.0627952465560497m 43.37338878824312m" data-normal="-0.00907710306756374m 0.9994894367260762m 0.030634491555952065m" data-visibility-attribute="visible" onclick="piazza()">
+           <script src="script.js"></script>
+          <div id= "piazza" class="HotspotAnnotation"  style="  background: url(piazza.jpg) center / cover no-repeat; width:100%;" onclick="gal_piazza()">
+          <div class="scritta">Piazza
+          </div>
+          </div>
+      </button>
+<!-- --------------------cima------------------------------- --> 
+        <button class="Hotspot" slot="hotspot-4" data-position="-46.64516004231656m 23.617126184213888m -12.46694783302678m" data-normal="0.11769807399556478m 0.9918878291783813m 0.04801768117613446m" data-visibility-attribute="visible" onclick="cimaloreto()">
+          <div id="cima" class="HotspotAnnotation" style="background: url(cimaloreto.jpg) center / cover no-repeat; width:100%;" onclick="gal_cima()">
+         <div class="scritta">Cima Loreto
+              </div>
+        </div>
+        
+      </button>
+<!-- --------------------yale------------------------------- -->        
+        
+        <button class="Hotspot" slot="hotspot-5" data-position="-6.672287488709216m 32.58268981582546m -27.760745398659225m" data-normal="0.1647917827890575m 0m 0.9863283775321504m" data-visibility-attribute="visible" onclick="yale()">
+          <div id="yale" class="HotspotAnnotation" style="background: url(yale.jpg) center / cover no-repeat; width:100%;"onclick="gal_yale()">
+         <div class="scritta">Yale
+              </div>
+        </div>
+
+      </button>
+<!-- --------------------campon------------------------------- -->        
+
+        <button class="Hotspot" slot="hotspot-6" data-position="54.77020532388835m 47.116102422937416m -41.234837329432565m" data-normal="-0.021809616209644722m 0.9994606373601796m -0.024551476704502417m" data-visibility-attribute="visible" onclick="campon()">
+          <div id="campon" class="HotspotAnnotation" style="background: url(campon.jpg) center / cover no-repeat; width:100%;"onclick="gal_campon()">
+         <div class="scritta">Campon
+              </div>
+        </div>
+      </button>
+        
+        
       <div class="progress-bar hide" slot="progress-bar">
           <div class="update-bar"></div>
       </div>
