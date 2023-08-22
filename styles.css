@@ -91,6 +91,16 @@ model-viewer {
   
 }
 
+.galleria{
+  position: absolute;
+  width: 100%;
+  bottom:0;
+  left:0;
+  
+}
+
+
+
 
 .Hotspot:not([data-visible]) > * {
   opacity: 0;
